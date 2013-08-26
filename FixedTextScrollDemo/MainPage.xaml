@@ -1,0 +1,84 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FixedTextScrollDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"
+    Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    Loaded="PhoneApplicationPage_Loaded"
+    >
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,12">
+            <TextBlock Text="FIXED TITLE DEMO" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <ScrollViewer Name="ScrollViewer"
+                          Margin="0,0,0,12"
+                          VerticalAlignment="Top"
+                          VerticalScrollBarVisibility="Visible"
+                          ManipulationMode="Control"
+                          MouseMove="ScrollViewer_MouseMove"
+                          MouseLeftButtonUp="ScrollViewer_MouseLeftButtonUp">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <Image Name="Image"
+                           Source="/Assets/Images/bear.jpg"
+                           Grid.Row="0"
+                           />
+
+                    <RichTextBox Name="Article"
+                                 Grid.Row="1"
+                                 Margin="12,12,12,0">
+                        <Paragraph>
+                            <Run FontWeight="Bold" FontSize="22">Never heard before, but a bear was found in the wild!</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <LineBreak />
+                            <Run>
+                                Bears are mammals of the family Ursidae. Bears are classified as caniforms, or doglike carnivorans, with the pinnipeds being their closest living relatives. Although only eight species of bears are extant, they are widespread, appearing in a wide variety of habitats throughout the Northern Hemisphere and partially in the Southern Hemisphere. Bears are found on the continents of North America, Central America, South America, Europe, and Asia.
+                                Common characteristics of modern bears include large bodies with stocky legs, long snouts, shaggy hair, plantigrade paws with five nonretractile claws, and short tails. While the polar bear is mostly carnivorous and the giant panda feeds almost entirely on bamboo, the remaining six species are omnivorous, with varied diets.
+                                With the exceptions of courting individuals and mothers with their young, bears are typically solitary animals. They are generally diurnal, but may be active during the night (nocturnal) or twilight (crepuscular), particularly around humans. Bears are aided by an excellent sense of smell, and despite their heavy build and awkward gait, they can run quickly and are adept climbers and swimmers. In autumn, some bear species forage large amounts of fermented fruits, which affects their behaviour.[1] Bears use shelters, such as caves and burrows, as their dens; most species occupy their dens during the winter for a long period (up to 100 days) of sleep similar to hibernation.[2]
+                                Bears have been hunted since prehistoric times for their meat and fur. With their tremendous physical presence and charisma, they play a prominent role in the arts, mythology, and other cultural aspects of various human societies. In modern times, the bears' existence has been pressured through the encroachment on their habitats and the illegal trade of bears and bear parts, including the Asian bile bear market. The IUCN lists six bear species as vulnerable or endangered, and even least concern species, such as the brown bear, are at risk of extirpation in certain countries. The poaching and international trade of these most threatened populations are prohibited, but still ongoing.
+                            </Run>
+                        </Paragraph>
+                    </RichTextBox>
+                </Grid>
+            </ScrollViewer>
+
+            <Border Name="TitleBorder"
+                    Background="#FF264778"
+                    Margin="0,216,0,0"
+                    Height="{Binding ElementName=TitleText, Path=Height}"
+                    VerticalAlignment="Top">
+                <TextBlock Name="TitleText"
+                                   Text="Bear found in the wild!" 
+                                   Foreground="White"
+                                   Margin="12"
+                                   />
+            </Border>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
