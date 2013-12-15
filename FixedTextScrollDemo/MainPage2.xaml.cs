@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using Microsoft.Phone.Controls;
@@ -34,6 +35,8 @@ namespace FixedTextScrollDemo
             {
                 _generalTransform = TitleBorder.TransformToVisual(ScrollViewer);
                 _childToParentCoordinates = _generalTransform.Transform(new Point(0, 0));
+
+                //Debug.WriteLine(_childToParentCoordinates.Y.ToString());
 
                 //If the top of the title border goes out of view from the ScrollViewer, take it out of the TextGrid and put it in the ContentPanel
                 if (_childToParentCoordinates.Y < 0)
