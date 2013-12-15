@@ -45,6 +45,7 @@
                            />
 
                     <Border Name="TitleBorder"
+                            Grid.Row="0"
                             Background="#FF264778"
                             Height="{Binding ElementName=TitleText, Path=Height}"
                             VerticalAlignment="Bottom">
